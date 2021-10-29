@@ -1,10 +1,6 @@
 pipeline {
     agent { docker 'python:3.5.1' }
     stages {
-        stage('Initialize'){
-                def dockerHome = tool 'myDocker'
-                env.PATH = "${dockerHome}/bin:${env.PATH}"
-            }
         stage('Build') {
             steps {
                 sh 'python --version'
