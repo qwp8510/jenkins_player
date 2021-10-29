@@ -1,13 +1,8 @@
 Jenkinsfile (Declarative Pipeline)
 pipeline {
-    agent none
+    agent { docker 'python:3.5.1' }
     stages {
         stage('Build') {
-            agent {
-                docker {
-                    image 'python:3.6-slim-buster'
-                }
-            }
             steps {
                 sh 'python --version'
                 sh 'echo "Hello world"'
