@@ -1,5 +1,5 @@
 pipeline {
-    agent { docker 'python:3.6.5' }
+    agent { docker '3.6-slim-buster' }
     stages {
         stage('Build') {
             steps {
