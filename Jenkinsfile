@@ -10,6 +10,7 @@ pipeline {
             steps {
                 sh 'python --version'
                 sh 'echo "Hello world!!!"'
+                sh 'pytest -vv'
             }
         }
     }
