@@ -1,10 +1,21 @@
 pipeline {
-    agent { docker 'python:3.5.1' }
+    agent { label 'daniel-test' }
     stages {
         stage('Build') {
+            agent {
+                docker {
+                    label 'py-docker'
+                    image 'python:3.5.1'
+                }
+            }
             steps {
                 sh 'python --version'
-                sh 'echo "Hello world"'
+                sh 'echo "Hello world!!!"'
+            }
+        }
+        stage('self define') {
+            steps {
+                sh 'echo "self defined"'
             }
         }
     }
