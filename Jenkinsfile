@@ -2,8 +2,10 @@ pipeline {
     agent {label 'master-test'}
     stages {
         stage('Build') {
-            def pyDocker = docker.build('first-image', './')
-            pyDocker.inside {
+            // def pyDocker = docker.build('first-image', './Dockerfile')
+            agent { dockerfile true }
+            // pyDocker.inside
+            steps {
                 sh 'python --version'
                 sh 'echo "Hello world!!!"'
                 sh 'pytest -vv'
