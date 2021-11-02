@@ -2,12 +2,8 @@ pipeline {
     agent {label 'master-test'}
     stages {
         stage('Build') {
-            agent {
-                docker {
-                    image 'python:3.5.1'
-                }
-            }
-            steps {
+            def pyDocker = docker.build('first-image', './')
+            pyDocker.inside {
                 sh 'python --version'
                 sh 'echo "Hello world!!!"'
                 sh 'pytest -vv'
