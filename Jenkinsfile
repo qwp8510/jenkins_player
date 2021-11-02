@@ -4,7 +4,6 @@ pipeline {
         stage('Build') {
             agent {
                 docker {
-                    label 'py-docker'
                     image 'python:3.5.1'
                 }
             }
